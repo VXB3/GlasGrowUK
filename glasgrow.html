@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlasGrow — We care, so you can enjoy. Plant rental subscriptions, Glasgow.</title>
+<link rel="canonical" href="https://glasgrowuk.com/">
+<meta name="description" content="GlasGrow is a subscription-based plant rental service for Glasgow homes and businesses — a fresh, regular rotation of local and exotic plant life, delivered and cared for by us.">
+<meta property="og:title" content="GlasGrow — We care, so you can enjoy">
+<meta property="og:description" content="Subscription plant rental for Glasgow homes and businesses. No sourcing, no stress — just a fresh rotation of plants, delivered and cared for.">
+<meta property="og:url" content="https://glasgrowuk.com/">
+<meta property="og:type" content="website">
+<meta property="og:see_also" content="https://instagram.com/glasgrow_uk">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mist:#EDF1EC;        /* pale glasshouse air */
+    --glass:#E0E9E1;       /* panel green-glass */
+    --glass-deep:#D2DFD5;  /* deeper glass */
+    --pine:#1C3229;        /* ink */
+    --pine-soft:#3D5A4E;   /* secondary text */
+    --leaf:#5F8871;        /* foliage mid */
+    --leaf-light:#8FAF9C;  /* foliage light */
+    --brass:#9C7A3C;       /* fittings accent */
+    --brass-light:#C2A15E;
+    --white:#F8FAF7;
+    --radius-arch:340px 340px 18px 18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--mist);
+    color:var(--pine);
+    font-family:'Karla',sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--leaf);color:var(--white)}
+
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.01em}
+
+  a{color:inherit}
+  img,svg{display:block;max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--mist) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--glass-deep);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .wordmark{
+    font-family:'Fraunces',serif;font-size:1.45rem;font-weight:500;
+    text-decoration:none;display:flex;align-items:center;gap:.55rem;
+  }
+  .wordmark .mark{
+    width:30px;height:36px;border:1.5px solid var(--pine);
+    border-radius:15px 15px 3px 3px;position:relative;flex:none;
+  }
+  .wordmark .mark::after{
+    content:'';position:absolute;left:50%;top:0;bottom:0;width:1.5px;background:var(--pine);
+  }
+  .nav-links{display:flex;gap:2.2rem;align-items:center;list-style:none}
+  .nav-links a{text-decoration:none;font-size:.95rem;font-weight:500;color:var(--pine-soft)}
+  .nav-links a:hover{color:var(--pine)}
+  .btn{
+    display:inline-block;background:var(--pine);color:var(--white);
+    font-family:'Karla',sans-serif;font-weight:600;font-size:.95rem;
+    padding:.8rem 1.6rem;border-radius:999px;text-decoration:none;
+    border:1.5px solid var(--pine);transition:background .25s,color .25s;
+  }
+  .btn:hover{background:transparent;color:var(--pine)}
+  .btn.light{background:transparent;color:var(--pine)}
+  .btn.light:hover{background:var(--pine);color:var(--white)}
+  .btn:focus-visible,a:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:5.5rem 0 6rem;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
+  .eyebrow{
+    font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--brass);margin-bottom:1.4rem;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem,5.2vw,4.2rem);
+    line-height:1.06;font-weight:400;margin-bottom:1.6rem;
+  }
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--leaf)}
+  .hero p.lede{font-size:1.15rem;color:var(--pine-soft);max-width:32rem;margin-bottom:2.2rem}
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+  .hero-note{margin-top:1.6rem;font-size:.9rem;color:var(--pine-soft)}
+  .hero-note strong{color:var(--pine)}
+
+  /* arch frame */
+  .arch{
+    background:linear-gradient(178deg,var(--glass) 0%,var(--glass-deep) 100%);
+    border:1.5px solid var(--pine);
+    border-radius:var(--radius-arch);
+    position:relative;overflow:hidden;
+    aspect-ratio:3/4;
+  }
+  .arch::before{ /* glazing bar */
+    content:'';position:absolute;left:50%;top:0;bottom:0;width:1.5px;
+    background:color-mix(in srgb,var(--pine) 30%,transparent);z-index:1;
+  }
+  .arch::after{ /* horizontal bar */
+    content:'';position:absolute;left:0;right:0;top:38%;height:1.5px;
+    background:color-mix(in srgb,var(--pine) 30%,transparent);z-index:1;
+  }
+  .arch svg{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+  .hero .arch{width:min(420px,100%);margin-left:auto}
+
+  /* gentle leaf sway */
+  @keyframes sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
+  .sway{transform-origin:bottom center;animation:sway 7s ease-in-out infinite}
+  .sway.s2{animation-duration:9s;animation-delay:-2s}
+  .sway.s3{animation-duration:8s;animation-delay:-4s}
+  @media (prefers-reduced-motion:reduce){
+    .sway{animation:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- Marquee strip ---------- */
+  .strip{
+    background:var(--pine);color:var(--mist);
+    padding:1.1rem 0;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  }
+  .strip .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .strip span{white-space:nowrap}
+  .strip .dot{color:var(--brass-light)}
+
+  /* ---------- Sections ---------- */
+  section{padding:5.5rem 0}
+  .sec-head{max-width:38rem;margin-bottom:3.5rem}
+  .sec-head h2{font-size:clamp(2rem,3.6vw,2.8rem);line-height:1.12;margin-bottom:1rem}
+  .sec-head p{color:var(--pine-soft);font-size:1.08rem}
+
+  /* How it works */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .step{
+    background:var(--white);border:1.5px solid var(--glass-deep);
+    border-radius:20px;padding:2.2rem 1.9rem;
+  }
+  .step .step-glyph{
+    width:56px;height:66px;margin-bottom:1.4rem;
+    border:1.5px solid var(--leaf);border-radius:28px 28px 4px 4px;
+    display:flex;align-items:flex-end;justify-content:center;overflow:hidden;
+  }
+  .step h3{font-size:1.35rem;margin-bottom:.6rem;font-weight:500}
+  .step p{color:var(--pine-soft);font-size:.98rem}
+
+  /* ---------- Pricing ---------- */
+  #plans{background:var(--glass);border-top:1.5px solid var(--glass-deep);border-bottom:1.5px solid var(--glass-deep)}
+  .plan-group{margin-bottom:3rem}
+  .plan-group-label{
+    font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--brass);margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem;
+  }
+  .plan-group-label::after{content:'';height:1px;flex:1;background:color-mix(in srgb,var(--pine) 18%,transparent)}
+  .plans-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .plan{
+    background:var(--white);border:1.5px solid var(--pine);
+    border-radius:24px;padding:2.4rem 2.2rem;position:relative;
+    display:flex;flex-direction:column;
+  }
+  .plan .tag{
+    position:absolute;top:-13px;left:2rem;background:var(--brass);color:var(--white);
+    font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:.28rem .8rem;border-radius:999px;
+  }
+  .plan h3{font-size:1.5rem;font-weight:500;margin-bottom:.35rem}
+  .plan .count{color:var(--pine-soft);font-size:.98rem;margin-bottom:1.5rem}
+  .price{font-family:'Fraunces',serif;font-size:3rem;line-height:1;margin-bottom:.3rem}
+  .price small{font-family:'Karla',sans-serif;font-size:1rem;color:var(--pine-soft);font-weight:400}
+  .per-plant{font-size:.85rem;color:var(--brass);font-weight:600;margin-bottom:1.6rem}
+  .plan ul{list-style:none;margin-bottom:2rem;flex:1}
+  .plan li{
+    padding:.5rem 0 .5rem 1.7rem;position:relative;font-size:.96rem;color:var(--pine-soft);
+    border-bottom:1px solid var(--glass);
+  }
+  .plan li:last-child{border-bottom:none}
+  .plan li::before{
+    content:'';position:absolute;left:0;top:.95rem;width:9px;height:9px;
+    border-radius:50% 50% 50% 0;background:var(--leaf);transform:rotate(-45deg);
+  }
+  .plan .btn{text-align:center}
+  .fine{margin-top:2.2rem;font-size:.88rem;color:var(--pine-soft);max-width:44rem}
+  .perks{margin-top:3.5rem}
+  .perks-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .perk{background:var(--white);border:1.5px solid var(--glass-deep);border-radius:20px;padding:1.8rem 2rem}
+  .perk h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:500;margin-bottom:.5rem;color:var(--pine)}
+  .perk h3::before{content:'✦ ';color:var(--brass)}
+  .perk p{color:var(--pine-soft);font-size:.96rem}
+  @media (max-width:900px){.perks-row{grid-template-columns:1fr}}
+
+  /* ---------- Included / gallery ---------- */
+  .included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:end}
+  .included-grid .arch{aspect-ratio:3/4.2}
+  .arch-caption{margin-top:1rem;text-align:center}
+  .arch-caption h3{font-size:1.15rem;font-weight:500}
+  .arch-caption p{font-size:.9rem;color:var(--pine-soft)}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:46rem}
+  details{
+    border-bottom:1.5px solid var(--glass-deep);padding:1.3rem 0;
+  }
+  summary{
+    font-family:'Fraunces',serif;font-size:1.2rem;font-weight:500;cursor:pointer;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{
+    content:'+';font-family:'Karla',sans-serif;font-size:1.5rem;font-weight:300;
+    color:var(--brass);transition:transform .25s;flex:none;
+  }
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding-top:.8rem;color:var(--pine-soft);max-width:40rem}
+
+  /* ---------- CTA / footer ---------- */
+  .final{
+    background:var(--pine);color:var(--mist);text-align:center;
+    padding:6rem 0;
+  }
+  .final h2{font-size:clamp(2.2rem,4vw,3.2rem);margin-bottom:1.2rem}
+  .final h2 em{font-style:italic;color:var(--leaf-light)}
+  .final p{color:color-mix(in srgb,var(--mist) 75%,transparent);max-width:30rem;margin:0 auto 2.4rem}
+  .final .btn{background:var(--mist);color:var(--pine);border-color:var(--mist)}
+  .final .btn:hover{background:transparent;color:var(--mist)}
+  footer{background:var(--pine);color:color-mix(in srgb,var(--mist) 60%,transparent);padding:2.5rem 0;font-size:.88rem;border-top:1px solid color-mix(in srgb,var(--mist) 15%,transparent)}
+  footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  footer a{color:var(--mist);text-decoration:none}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:3rem}
+    .hero .arch{margin:0 auto}
+    .steps{grid-template-columns:1fr}
+    .plans-row{grid-template-columns:1fr}
+    .included-grid{grid-template-columns:1fr;max-width:340px;margin:0 auto}
+    .nav-links li:not(:last-child){display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="#top">
+      <svg width="30" height="36" viewBox="0 0 100 130" aria-hidden="true">
+        <path d="M22 118 L22 52 A28 28 0 0 1 78 52 L78 118 Z" fill="#E0E9E1"/>
+        <circle cx="50" cy="36" r="5.5" fill="#9C7A3C"/>
+        <path d="M50 118 L50 70" stroke="#1C3229" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M50 92 C35 90 26 77 30 63 C44 65 52 77 50 92 Z" fill="#5F8871" stroke="#1C3229" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M50 76 C65 74 74 61 70 47 C56 49 48 61 50 76 Z" fill="#8FAF9C" stroke="#1C3229" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M22 118 L22 52 A28 28 0 0 1 78 52 L78 118" fill="none" stroke="#1C3229" stroke-width="5" stroke-linecap="round"/>
+        <line x1="10" y1="118" x2="90" y2="118" stroke="#1C3229" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      Glas<span style="color:var(--leaf)">Grow</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#plans">Plans</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a class="btn" href="#start">Start a plan</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Plant subscriptions · Glasgow</p>
+      <h1>We care,<br><em>so you can enjoy.</em></h1>
+      <p class="lede">A subscription-based plant rental service for Glasgow homes and businesses — a fresh, regular rotation of local and exotic plant life, delivered, cared for and refreshed by us. No sourcing, no stress, no guesswork.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#plans">See plans &amp; pricing</a>
+        <a class="btn light" href="#how">How it works</a>
+      </div>
+      <p class="hero-note">From <strong>£20/month</strong> · Pots included · Serving Glasgow &amp; surrounds</p>
+    </div>
+
+    <div class="arch" role="img" aria-label="Illustration of a monstera and fern in terracotta pots inside a glasshouse arch">
+      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- floor line -->
+        <line x1="0" y1="352" x2="300" y2="352" stroke="#1C3229" stroke-opacity=".25" stroke-width="1.5"/>
+        <!-- monstera -->
+        <g class="sway">
+          <g stroke="#1C3229" stroke-width="2" fill="#5F8871">
+            <path d="M150 340 C150 300 148 260 142 220" fill="none"/>
+            <path d="M142 222 C110 210 92 180 96 150 C120 148 148 168 152 200 C154 180 150 160 158 140 C182 150 194 184 184 214 C170 228 154 228 142 222 Z"/>
+            <path d="M150 340 C152 300 158 262 170 232" fill="none"/>
+            <path d="M170 234 C200 226 222 200 222 170 C198 164 172 180 164 210 C160 188 166 166 160 146 C138 152 124 184 132 212 C142 230 158 236 170 234 Z" fill="#8FAF9C"/>
+            <path d="M150 340 C148 310 140 285 128 264" fill="none"/>
+            <path d="M128 266 C104 262 86 242 84 218 C104 212 126 224 134 246 C138 254 136 262 128 266 Z" fill="#3D5A4E"/>
+          </g>
+        </g>
+        <!-- pot: monstera -->
+        <g>
+          <path d="M116 340 L184 340 L176 396 L124 396 Z" fill="#C2A15E" stroke="#1C3229" stroke-width="2"/>
+          <rect x="110" y="332" width="80" height="12" rx="4" fill="#9C7A3C" stroke="#1C3229" stroke-width="2"/>
+        </g>
+        <!-- small fern right -->
+        <g class="sway s2">
+          <g stroke="#3D5A4E" stroke-width="2" fill="none">
+            <path d="M244 352 C244 330 240 312 232 296"/>
+            <path d="M244 352 C246 328 252 312 262 300"/>
+            <path d="M244 352 C244 336 244 322 246 310"/>
+          </g>
+          <g fill="#8FAF9C" stroke="#1C3229" stroke-width="1.4">
+            <ellipse cx="230" cy="296" rx="7" ry="12" transform="rotate(-24 230 296)"/>
+            <ellipse cx="263" cy="300" rx="7" ry="12" transform="rotate(22 263 300)"/>
+            <ellipse cx="246" cy="306" rx="7" ry="13"/>
+          </g>
+        </g>
+        <g>
+          <path d="M226 352 L262 352 L258 384 L230 384 Z" fill="#E0E9E1" stroke="#1C3229" stroke-width="2"/>
+        </g>
+        <!-- snake plant left -->
+        <g class="sway s3">
+          <g stroke="#1C3229" stroke-width="1.6">
+            <path d="M56 352 C52 320 54 296 62 274 C70 296 68 324 66 352 Z" fill="#3D5A4E"/>
+            <path d="M66 352 C68 316 74 292 86 272 C90 298 84 328 78 352 Z" fill="#5F8871"/>
+            <path d="M46 352 C40 328 40 308 46 290 C54 308 54 332 54 352 Z" fill="#8FAF9C"/>
+          </g>
+        </g>
+        <g>
+          <path d="M38 352 L88 352 L82 392 L44 392 Z" fill="#C2A15E" stroke="#1C3229" stroke-width="2"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= STRIP ================= -->
+<div class="strip" aria-hidden="true">
+  <div class="wrap">
+    <span>Tailored packages</span><span class="dot">✦</span>
+    <span>Delivered &amp; placed</span><span class="dot">✦</span>
+    <span>Cared for &amp; rotated</span><span class="dot">✦</span>
+    <span>Upgrade anytime</span>
+  </div>
+</div>
+
+<!-- ================= HOW ================= -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2>Greenery as a service, in three parts.</h2>
+      <p>A fresh rotation of local and exotic plant life — without the hassle of sourcing, pricing or plant-parenting.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-glyph" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="38" height="38"><path d="M20 34 V16 M20 20 C12 18 8 10 10 4 C18 6 22 12 20 20 M20 24 C28 22 32 15 30 9 C23 11 19 17 20 24" stroke="#5F8871" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <h3>1 · Tailor &amp; subscribe</h3>
+        <p>Build your plant package right here — the amount and style of floral display that suits your home or business — and subscribe with one simple monthly payment.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-glyph" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="38" height="38"><path d="M8 26 C8 18 14 14 20 14 C26 14 32 18 32 26 M20 14 V8 M14 32 h12" stroke="#5F8871" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <h3>2 · We deliver &amp; place</h3>
+        <p>Once your package is finalised, one of our team delivers everything to your door — potted, placed and arranged to suit the space.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-glyph" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="38" height="38"><path d="M10 20 a10 10 0 1 1 3 7 M10 20 v-7 M10 20 h7" stroke="#5F8871" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>3 · We care &amp; rotate</h3>
+        <p>We keep every plant thriving — watering, feeding, wiping leaves — and rotate a fresh selection into your space regularly, so it never stands still.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANS ================= -->
+<section id="plans">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Plans &amp; pricing</p>
+      <h2>One monthly price. Everything included.</h2>
+      <p>Every plan includes delivery, pots, monthly care visits and free swaps. The only question is how green you want to go.</p>
+    </div>
+
+    <div class="plan-group reveal">
+      <p class="plan-group-label">For homes</p>
+      <div class="plans-row">
+        <div class="plan">
+          <h3>Starter</h3>
+          <p class="count">5 plants, potted &amp; placed</p>
+          <p class="price">£20<small> /month</small></p>
+          <p class="per-plant">£4.00 per plant</p>
+          <ul>
+            <li>Monthly care visit included</li>
+            <li>Fresh rotation + free swaps included</li>
+            <li>Easy-care species, chosen for your light</li>
+            <li>Cancel anytime, monthly rolling</li>
+          </ul>
+          <a class="btn" href="#start">Start with 5</a>
+        </div>
+        <div class="plan">
+          <span class="tag">Most popular</span>
+          <h3>Full Home</h3>
+          <p class="count">10 plants, potted &amp; placed</p>
+          <p class="price">£35<small> /month</small></p>
+          <p class="per-plant">£3.50 per plant</p>
+          <ul>
+            <li>Monthly care visit included</li>
+            <li>Fresh rotation + free swaps included</li>
+            <li>Mix of sizes, from shelf to statement</li>
+            <li>Cancel anytime, monthly rolling</li>
+          </ul>
+          <a class="btn" href="#start">Start with 10</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="plan-group reveal">
+      <p class="plan-group-label">For businesses</p>
+      <div class="plans-row">
+        <div class="plan">
+          <h3>Studio</h3>
+          <p class="count">20 plants across your space</p>
+          <p class="price">£75<small> /month</small></p>
+          <p class="per-plant">£3.75 per plant</p>
+          <ul>
+            <li>Monthly care visit, scheduled around you</li>
+            <li>Rotation &amp; free swaps — never looks tired</li>
+            <li>Statement plants for reception &amp; front of house</li>
+            <li>One simple invoice, monthly rolling</li>
+          </ul>
+          <a class="btn" href="#start">Enquire for 20</a>
+        </div>
+        <div class="plan">
+          <h3>Full Office</h3>
+          <p class="count">30 plants across your space</p>
+          <p class="price">£105<small> /month</small></p>
+          <p class="per-plant">£3.50 per plant</p>
+          <ul>
+            <li>Monthly care visit, scheduled around you</li>
+            <li>Rotation &amp; free swaps — never looks tired</li>
+            <li>Statement plants for reception &amp; front of house</li>
+            <li>One simple invoice, monthly rolling</li>
+          </ul>
+          <a class="btn" href="#start">Enquire for 30</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="fine">Prices cover Glasgow and immediate surrounds. Larger spaces, seasonal refreshes or something in between the plans? <a href="#start">Get in touch</a> — we'll build you a custom round.</p>
+
+    <div class="perks reveal">
+      <p class="plan-group-label">Extra perks</p>
+      <div class="perks-row">
+        <div class="perk">
+          <h3>Upgrade anytime</h3>
+          <p>Add more plants, or step up to a higher-appeal selection — more exotic, more statement, more value. Your subscription flexes as your space (or your taste) grows.</p>
+        </div>
+        <div class="perk">
+          <h3>Early rotation</h3>
+          <p>Can't wait for your next scheduled refresh? Pay a small early-rotation charge and we'll bring your new selection round ahead of schedule.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INCLUDED / GALLERY ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">What you get</p>
+      <h2>Chosen to thrive, not just survive.</h2>
+      <p>We stock hardy, handsome species that forgive a dark corner and a draughty close — and we take responsibility for every one of them.</p>
+    </div>
+    <div class="included-grid">
+      <div class="reveal">
+        <div class="arch" role="img" aria-label="Illustration of a tall snake plant in a brass pot">
+          <svg viewBox="0 0 300 420" aria-hidden="true">
+            <line x1="0" y1="368" x2="300" y2="368" stroke="#1C3229" stroke-opacity=".25" stroke-width="1.5"/>
+            <g class="sway">
+              <g stroke="#1C3229" stroke-width="1.8">
+                <path d="M135 368 C125 300 128 240 148 180 C160 244 152 314 148 368 Z" fill="#3D5A4E"/>
+                <path d="M155 368 C158 296 170 244 192 200 C198 262 182 322 168 368 Z" fill="#5F8871"/>
+                <path d="M118 368 C106 316 106 272 118 232 C132 272 130 326 126 368 Z" fill="#8FAF9C"/>
+                <path d="M170 368 C176 330 186 300 202 276 C204 312 192 346 180 368 Z" fill="#8FAF9C"/>
+              </g>
+            </g>
+            <path d="M104 368 L196 368 L186 414 L114 414 Z" fill="#C2A15E" stroke="#1C3229" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="arch-caption">
+          <h3>The unkillables</h3>
+          <p>Snake plants, ZZs, pothos — species that shrug off neglect.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="arch" role="img" aria-label="Illustration of a trailing pothos on a shelf">
+          <svg viewBox="0 0 300 420" aria-hidden="true">
+            <line x1="40" y1="140" x2="260" y2="140" stroke="#1C3229" stroke-width="2"/>
+            <line x1="0" y1="368" x2="300" y2="368" stroke="#1C3229" stroke-opacity=".25" stroke-width="1.5"/>
+            <path d="M118 140 L182 140 L176 110 L124 110 Z" transform="rotate(180 150 125)" fill="#E0E9E1" stroke="#1C3229" stroke-width="2"/>
+            <g class="sway s2" style="transform-origin:150px 140px">
+              <g stroke="#3D5A4E" stroke-width="2" fill="none">
+                <path d="M132 142 C120 190 116 240 122 292"/>
+                <path d="M168 142 C182 186 186 232 178 280"/>
+                <path d="M150 142 C148 200 152 250 148 320"/>
+              </g>
+              <g fill="#5F8871" stroke="#1C3229" stroke-width="1.4">
+                <path d="M122 190 c-12 -4 -16 -16 -10 -24 c10 2 16 12 10 24 Z"/>
+                <path d="M118 244 c-12 -4 -16 -16 -10 -24 c10 2 16 12 10 24 Z" fill="#8FAF9C"/>
+                <path d="M122 292 c-12 -4 -16 -16 -10 -24 c10 2 16 12 10 24 Z"/>
+                <path d="M182 188 c12 -4 16 -16 10 -24 c-10 2 -16 12 -10 24 Z" fill="#8FAF9C"/>
+                <path d="M184 234 c12 -4 16 -16 10 -24 c-10 2 -16 12 -10 24 Z"/>
+                <path d="M178 280 c12 -4 16 -16 10 -24 c-10 2 -16 12 -10 24 Z" fill="#8FAF9C"/>
+                <path d="M150 210 c-12 -4 -16 -16 -10 -24 c10 2 16 12 10 24 Z" fill="#3D5A4E"/>
+                <path d="M152 268 c12 -4 16 -16 10 -24 c-10 2 -16 12 -10 24 Z"/>
+                <path d="M148 320 c-12 -4 -16 -16 -10 -24 c10 2 16 12 10 24 Z" fill="#3D5A4E"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="arch-caption">
+          <h3>Placed with intent</h3>
+          <p>Shelves, sills, corners — arranged to suit the room, not fight it.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="arch" role="img" aria-label="Illustration of a peace lily in bloom">
+          <svg viewBox="0 0 300 420" aria-hidden="true">
+            <line x1="0" y1="368" x2="300" y2="368" stroke="#1C3229" stroke-opacity=".25" stroke-width="1.5"/>
+            <g class="sway s3">
+              <g stroke="#1C3229" stroke-width="1.8">
+                <path d="M150 368 C146 320 138 284 120 254 C104 270 104 306 122 334 C134 352 146 362 150 368 Z" fill="#3D5A4E"/>
+                <path d="M150 368 C156 316 166 280 186 252 C200 272 196 310 176 336 C164 352 154 362 150 368 Z" fill="#5F8871"/>
+                <path d="M150 368 C150 320 150 280 150 240 C136 254 132 296 140 330 Z" fill="#8FAF9C"/>
+              </g>
+              <path d="M150 240 C150 214 150 196 150 184" stroke="#3D5A4E" stroke-width="2" fill="none"/>
+              <path d="M150 186 C136 176 132 156 142 142 C158 134 172 146 172 162 C172 176 162 186 150 186 Z" fill="#F8FAF7" stroke="#1C3229" stroke-width="1.8"/>
+              <line x1="152" y1="182" x2="156" y2="158" stroke="#9C7A3C" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <path d="M112 368 L188 368 L180 412 L120 412 Z" fill="#E0E9E1" stroke="#1C3229" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="arch-caption">
+          <h3>Always at their best</h3>
+          <p>Anything past its best gets swapped on the next visit, free.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Questions</p>
+      <h2>The honest answers.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>What if I kill a plant between visits?</summary>
+        <p>Then we've chosen the wrong plant for you — that's on us. We'll swap it free on the next visit and pick something hardier. There's no penalty, no charge, and genuinely no judgement.</p>
+      </details>
+      <details>
+        <summary>Do I need to do anything at all?</summary>
+        <p>Ideally nothing. On the home plans we set everything up so plants comfortably last the month between visits. If a plant would appreciate a splash of water in a heatwave, we'll text you — that's the extent of it.</p>
+      </details>
+      <details>
+        <summary>Do I own the plants and pots?</summary>
+        <p>They're ours — that's what keeps swaps free and your space always looking fresh. Fall in love with a particular plant? You can buy it out anytime and we'll pot its replacement.</p>
+      </details>
+      <details>
+        <summary>Which areas do you cover?</summary>
+        <p>Glasgow and immediate surrounds. If you're a bit further out, get in touch anyway — if you're near an existing round, we can usually make it work.</p>
+      </details>
+      <details>
+        <summary>Can I upgrade or get a fresh rotation early?</summary>
+        <p>Yes to both. Add more plants or step up to a higher-appeal selection anytime — your subscription simply adjusts. Fancy a refresh before your scheduled rotation? A small early-rotation charge brings your next selection round ahead of time.</p>
+      </details>
+      <details>
+        <summary>Can I cancel?</summary>
+        <p>Anytime — plans are monthly rolling. We'll collect the plants and pots on a final visit and part as friends.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" id="start">
+  <div class="wrap reveal">
+    <h2>Ready for a <em>greener</em> room?</h2>
+    <p>Tell us about your space and we'll suggest the right plan — no site visit needed, a few photos will do.</p>
+    <a class="btn" href="mailto:glasgrowuk@gmail.com?subject=Start%20a%20plan">Start a plan — glasgrowuk@gmail.com</a>
+    <p style="margin-top:1.6rem;font-size:.9rem;"><a href="https://instagram.com/glasgrow_uk" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px;">Follow @glasgrow_uk on Instagram</a> for the plants doing the rounds this week</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 GlasGrow · Glasgow · glasgrowuk.com</span>
+    <span><a href="mailto:glasgrowuk@gmail.com">glasgrowuk@gmail.com</a> · <a href="https://instagram.com/glasgrow_uk" target="_blank" rel="noopener">@glasgrow_uk</a> · <a href="#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+  // scroll reveals
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
